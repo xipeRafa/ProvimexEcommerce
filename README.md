@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 # polancoEcommerc
 
 
-https://xiperafa.github.io/polancoEcommerc/
+https://xiperafa.github.io/ProvimexEcommerce/
 
 
 # ProvimexEcommerce
