@@ -102,7 +102,7 @@ const BuyingForm = () => {
 
 
     const purchaseNotif = () => {
-        toast(`Compra Realizada con exito!!}`, {
+        toast(`Compra Realizada con exito!!`, {
             position: "bottom-left",
             autoClose: 7500,
             hideProgressBar: false,

@@ -34,8 +34,8 @@ const Cart = () => {
                     </div>
                     <div className="cart-items">
                         {
-                            cart.map( ({ codigo, quantity, price, imgUrl }) =>(
-                                <CartItem key={String(price+23235423)} codigo={codigo} quantity={quantity} price={price} imgUrl={imgUrl} deleteItem={deleteItem}  />
+                            cart.map( ({ codigo, quantity, imgUrl, precio }) =>(
+                                <CartItem key={String(precio+232)} codigo={codigo} quantity={quantity} precio={precio} imgUrl={imgUrl} deleteItem={deleteItem}  />
                             ))
                         }
                     </div>

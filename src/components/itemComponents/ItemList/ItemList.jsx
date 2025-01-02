@@ -20,6 +20,7 @@ const ItemList = ({ items }) => {
                     di={p.di} 
                     de={p.de}  
                     ancho={p.ancho}
+                    precio={p.precio}
                     description={p.description}
                 />)
             }

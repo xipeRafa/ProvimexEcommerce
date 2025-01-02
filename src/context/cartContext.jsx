@@ -108,7 +108,7 @@ export const CartProvider = (props) => {
 
   const getTotal = () => {
     const sumalize = cart.reduce(
-      (acc, prod) => acc + prod.price * prod.quantity,
+      (acc, prod) => acc + prod.precio * prod.quantity,
       0
     );
     setTotal(sumalize);

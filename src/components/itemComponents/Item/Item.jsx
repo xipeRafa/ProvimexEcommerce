@@ -7,7 +7,7 @@ import './Item.css';
 import { Link } from 'react-router-dom';
 
 
-const Item = ({ id, codigo, imgUrl, description, di, de, ancho }) => {
+const Item = ({ id, codigo, imgUrl, description, di, de, ancho, precio }) => {
 
 
     return (
@@ -27,9 +27,11 @@ const Item = ({ id, codigo, imgUrl, description, di, de, ancho }) => {
                 <div className="info-container">
                     
                     <p className='title truncate'>{codigo}</p>
-                    <p className='description'>Dia Int: {di}</p>
-                    <p className='description'>Dia Ext: {de}</p>
+                    <p className='description'>Diametro Int: {di}</p>
+                    <p className='description'>Diametro Ext: {de}</p>
                     <p className='description'>Ancho: {ancho}</p>
+                    <p className='description'>Precio: {precio}</p>
+                 
                     {/*{name==='Accesorio' ? <p className='description'>{description}</p> : <p className='description'>Tela {tela}</p>}*/}
                     
 
@@ -38,7 +40,6 @@ const Item = ({ id, codigo, imgUrl, description, di, de, ancho }) => {
                     ))}*/}
 
                     
-                    {<p className='price'>Precio ${'#'}</p>}
                     
                 </div>
             </div>

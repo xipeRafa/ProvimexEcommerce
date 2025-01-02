@@ -76,7 +76,7 @@ console.log(item)
                 <div className="title-price">
  
                     <h4 className="item-name">{item.codigo}</h4>
-                    <h4>$ {item.price}</h4>
+                    <h4>$ {item.precio}</h4>
                     <p>Dia Int: {item.di}</p>
                     <p>Dia Ext: {item.de}</p>
                     <p>Ancho: {item.ancho}</p>

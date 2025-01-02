@@ -3,7 +3,7 @@ import React from 'react';
 //Css particular
 import './CartItem.css'
 
-const CartItem = ({codigo, quantity, price, imgUrl , deleteItem }) => {
+const CartItem = ({codigo, quantity, precio, imgUrl , deleteItem }) => {
 
     return (
         <>
@@ -26,10 +26,10 @@ const CartItem = ({codigo, quantity, price, imgUrl , deleteItem }) => {
                     {quantity}
                 </div>
                 <div className="item-value item">
-                    $ {price}
+                    $ {precio}
                 </div>
                 <div className="item-totalValue item">
-                    $ {Number(quantity) * Number(price)}
+                    $ {Number(quantity) * Number(precio)}
                 </div> 
             </div>
             <hr/> 

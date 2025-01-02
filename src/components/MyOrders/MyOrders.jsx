@@ -37,7 +37,7 @@ const MyOrders = () => {
                     <div className="orders-columns">
                         <p>Fecha</p>
                         <p>Productos</p>
-                        <p>Correo</p>
+                        {/*<p>Correo</p>*/}
                         <p>Total</p>
                     </div>
                     <div className="orders">
@@ -50,18 +50,18 @@ const MyOrders = () => {
                                     <div className="order-row" key={el.buyer.email}>
                                         <div className="order-info date" >
                                             {/*{el.date.slice(0,16)}*/}
-                                            {new Date(el.date).toLocaleDateString("es-ES", {year: 'numeric', month: 'long', day: 'numeric'})}
+                                            {new Date(el.date).toLocaleDateString("es-ES", {year: 'numeric', month: 'numeric', day: 'numeric'})}
                                                               
                                         </div>
                                         <div className="order-info items">
                                             <ul>
                                             {
                                                 el.items && 
-                                                el.items.map(item => <li className="truncate" key={item.id}> {item.quantity} x {item.name} </li> )
+                                                el.items.map(item => <li className="truncate" key={item.id}> {item.quantity} x {item.codigo} </li> )
                                             }
                                             </ul>
                                         </div>
-                                        <div className="order-info id "> { el.buyer.email } </div>
+                                        {/*<div className="order-info id "> { el.buyer.email } </div>*/}
                                         <div className="order-info total"> ${ el.total } </div>
                                     </div> 
                                 )) 
