@@ -22,7 +22,6 @@ const ItemListContainer = () => {
 
     const { pathname } = useLocation();
 
-
     const {categoryId} = useParams();//Categoria definida en ruta para saber que productos filtrar
 
     const [items, setItems] = useState([]);
@@ -30,6 +29,15 @@ const ItemListContainer = () => {
     console.log(items)
 
     localStorage.setItem('arrItems', JSON.stringify(items))
+
+
+
+
+
+
+
+
+
 
 
     useEffect(() => {
@@ -67,92 +75,25 @@ const ItemListContainer = () => {
 
 
 
-
-        const [sucursalState, setSucursalState]=useState('Hermosillo')
-
-        const [paginationState, setPaginationState]=useState(0)
-
-        const handleSucursalState=(sucursal)=>{
-            setPaginationState(0)
-            setSucursalState(sucursal)
-        }
+        // useEffect(() => {
+        //     window.scrollTo(0,250);
+        // }, [paginationState]);
 
 
-        useEffect(() => {
-            window.scrollTo(0,250);
-        }, [paginationState]);
-
-
-        useEffect(() => {
-            setPaginationState(0)
-        }, [pathname]);
+        // useEffect(() => {
+        //     setPaginationState(0)
+        // }, [pathname]);
 
       
+          const[sliceState, setSliceState]=useState(0)
+          let prodByPage = 20;
+          const[sliceAlert, setSliceAlert]=useState('')
                                       
 
-
-        let cuantByPage = 20
-       
-        let pages = []
-                           
-
-
-        const [hmState, setHmState]=useState(true)
       
 
-        let arrSucursal = items.sort((a, b) => b.duration - a.duration)
-                    .filter(product => product.sucursal === sucursalState)
-                    .filter(el => el.para === (hmState ? 'hombre' : 'mujer'))
 
 
-
-        for (let i = 0; i <= Math.ceil(arrSucursal.length/cuantByPage); i++) {
-                pages.push(i);
-        }
-
-        pages.shift()
-
-
-
-
-
-
-
-
-
-
-        let pagesCategory = []
-      
-
-        let arrCategory = items.sort((a, b) => b.duration - a.duration)
-                            .filter(product => product.sucursal === sucursalState)
-                            .filter(product => product.category === `${categoryId}`)
-                            .filter(el => el.para === (hmState ? 'hombre' : 'mujer'))
-
-
-
-        for (let i = 0; i <= Math.ceil(arrCategory.length/cuantByPage); i++) {
-                pagesCategory.push(i);
-        }
-        
-        pagesCategory.shift()
-
-
-
-
-
-
-        let b = items.sort((a, b) => b.duration - a.duration)
-                                    .filter(product => product.sucursal === sucursalState)
-                                    .filter(el => el.para === (hmState ? 'hombre' : 'mujer'))
-                                    .slice(paginationState, paginationState+cuantByPage)
-                                    
-
-
-        localStorage.setItem('cuantByPage', JSON.stringify(pages))
-        localStorage.setItem('cuantByPageCategory', JSON.stringify(pagesCategory))
-
-console.log(b)
 
         return(
 
@@ -160,132 +101,74 @@ console.log(b)
 
 
 
-                    (categoryId !== undefined) ?
+
 
                         <>
 
-                          {/*  <div className="btn-sucursal">
-                                <button className={sucursalState === 'Hermosillo' ? 'Active' : 'no-Active'} onClick={()=>handleSucursalState('Hermosillo')}>Hermosillo</button>
-                                <button className={sucursalState === 'San Carlos' ? 'Active' : 'no-Active'} onClick={()=>handleSucursalState('San Carlos')}>San Carlos</button>
-                                <button onClick={()=>setHmState(!hmState)}>{(hmState ? 'hombre' : 'mujer').toUpperCase()}</button>
-                            </div>*/}
+                         
 
                             <div className="item-list-container">  
-                                <ItemList items={items.sort((a, b) => b.duration - a.duration)} />  
+                                <ItemList items={items.sort((a, b) => b.duration - a.duration).slice(sliceState, sliceState + prodByPage)} />  
                             </div>
 
 
 
-                            <div className="btn-pagination">
 
-                                <button className={paginationState < 1 ? 'd-none': 'koko'}
+                                    <div className='btn-pagination'>
 
-                                        onClick={()=>{
+            <button className={sliceState === 0 ? 'd-none' : 'siguiente'} onClick={()=>{
+                                                                  if(sliceState > 0){
+                                                                      setSliceState(sliceState - prodByPage)
+                                                                      window.scrollTo(0,350)
+                                                                    }
+                                                                  }
+                                                                }>
+                                                                    ⇦ Anterior
+            </button>  
 
-                                                setPaginationState(paginationState - cuantByPage)
-
-                                        }}> ← ANTERIOR
-
-                                </button>
 
 
-                                
-                                        
-                                          
-                                        {JSON.parse(localStorage.cuantByPageCategory).map((el, i)=>{
-                                           
-                                              return <button key={i}
-                                                className={paginationState < cuantByPage + cuantByPage ? 'd-none' : 'siguiente'}
-                                                onClick={()=>{setPaginationState(el * cuantByPage - cuantByPage)}}>
-                                                    {el}
-                                                </button>  
-                                            
-                                            
-                                           
-                                        })}
-                                        
-                                
+            <button className={sliceState === prodByPage || sliceState === 0 ? 'd-none' : 'siguiente'} onClick={()=>{ 
+                                                                                                        setSliceState(0)
+                                                                                                        window.scrollTo(0,350) 
+                                                                                                    }
+                                                                                                  }>
+                                                                                                      ０
+            </button>   
 
-                                <button className={arrCategory.length === cuantByPage || arrCategory.length < paginationState + cuantByPage  ? 'd-none' : 'siguiente'}
 
-                                        onClick={()=>{
 
-                                                setPaginationState(paginationState + cuantByPage)
+            <button className='btn-pagination' onClick={()=>{ 
+                                    if(items.filter(el => el).length > sliceState + prodByPage){
+                                        setSliceState(sliceState + prodByPage) 
+                                        window.scrollTo(0,350) 
+                                    }else{
+                                        setSliceAlert(' No hay mas Productos en esta Lista')
+                                        setTimeout(()=>{
+                                            setSliceAlert('')
+                                        },2500)
+                                    }
+                                }
+                    }>
+                        Siguiente ⇨ 
+            </button>  
 
-                                        }}> SIGUIENTE → 
 
-                                </button>
+            <span className='sliceAlert'>{sliceAlert}</span>
 
-                            </div>
 
+
+        </div>
+
+<div className='infoSliceContainer'>
+            <p className='sliceButtonsP'>De: {sliceState + 1} a: {items.length > sliceState + prodByPage ? sliceState + prodByPage : items.length}</p>
+            <p className='sliceButtonsP'>Paginas de {prodByPage} Productos c/u. {items.length} en Total</p>                 
+</div>
 
 
                         </>
 
-                    :    
-                         <>  
-
-                         {/*   <div className="btn-sucursal">
-                                <button className={sucursalState === 'Hermosillo' ? 'Active' : 'no-Active'} onClick={()=>handleSucursalState('Hermosillo')}>Hermosillo</button>
-                                <button className={sucursalState === 'San Carlos' ? 'Active' : 'no-Active'} onClick={()=>handleSucursalState('San Carlos')}>San Carlos</button>
-                                <button onClick={()=>setHmState(!hmState)}>{(hmState ? 'hombre' : 'mujer').toUpperCase()}</button>
-                            </div>*/}
-
-
-
-                            <div className="item-list-container">    
-                                <ItemList items={items.sort((a, b) => b.duration - a.duration)} />
-                            </div>
-
-
-
-
-                            <div className="btn-pagination">
-
-                                <button className={paginationState < 1 ? 'd-none': 'siguiente' }
-
-                                        onClick={()=>{
-
-                                                setPaginationState(paginationState - cuantByPage)
-
-                                        }}> ← ANTERIOR
-
-                                </button>
-
-
-
-                                        {JSON.parse(localStorage.cuantByPage).map((el, i)=>{
-                                           
-                                              return <button key={i}
-                                                className={paginationState < cuantByPage + cuantByPage ? 'd-none' : 'siguiente'}
-                                                onClick={()=>{setPaginationState(el * cuantByPage - cuantByPage)}}>
-                                                    {el}
-                                                </button>  
-                                            
-                                            
-                                           
-                                        })}
-                               
-
-                                           
-                               
-
-                                <button className={arrSucursal.length === cuantByPage || arrSucursal.length < paginationState + cuantByPage ? 'd-none' : 'siguiente'}
-
-                                        onClick={()=>{
-
-                                                setPaginationState(paginationState + cuantByPage)
-
-                                        }}> SIGUIENTE → 
-
-                                </button>
-
-                            </div>
-
-
-
-
-                        </>
+                    
 
 
             :(<Loader/>)

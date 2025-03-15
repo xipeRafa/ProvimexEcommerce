@@ -8,14 +8,6 @@
   padding: 5vh 0;
 }
 
-
-
-.btn-sucursal{
-  margin-top: 38px;
-  display: flex;
-  justify-content: center;
-}
-
 .btn-pagination{
   display: flex;
   justify-content: center;
@@ -31,7 +23,7 @@
 .btn-pagination>button:focus{
     margin: 0 2px;
      background-color:var(--live-orange-color)!important;
-     color: black;
+     color: white;
 }
 
 
@@ -75,4 +67,7 @@ button:focus{
 .d-none{
   display: none;
 }
-
+.infoSliceContainer{
+  text-align: center;
+  font-family:serif;
+}
