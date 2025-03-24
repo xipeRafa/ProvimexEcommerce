@@ -97,26 +97,16 @@ const ItemListContainer = () => {
 
         return(
 
-            (items.length > 0) ? 
+        (items.length > 0) ? <>
+            
+            <div className="item-list-container">  
+                    <ItemList items={items.slice(sliceState, sliceState + prodByPage)} />  
+            </div>
 
 
+            <div className='btn-pagination'>
 
-
-
-                        <>
-
-                         
-
-                            <div className="item-list-container">  
-                                <ItemList items={items.sort((a, b) => b.duration - a.duration).slice(sliceState, sliceState + prodByPage)} />  
-                            </div>
-
-
-
-
-                                    <div className='btn-pagination'>
-
-            <button className={sliceState === 0 ? 'd-none' : 'siguiente'} onClick={()=>{
+                    <button className={sliceState === 0 ? 'd-none' : 'siguiente'} onClick={()=>{
                                                                   if(sliceState > 0){
                                                                       setSliceState(sliceState - prodByPage)
                                                                       window.scrollTo(0,350)
@@ -124,21 +114,21 @@ const ItemListContainer = () => {
                                                                   }
                                                                 }>
                                                                     ⇦ Anterior
-            </button>  
+                    </button>  
 
 
 
-            <button className={sliceState === prodByPage || sliceState === 0 ? 'd-none' : 'siguiente'} onClick={()=>{ 
+                    <button className={sliceState === prodByPage || sliceState === 0 ? 'd-none' : 'siguiente'} onClick={()=>{ 
                                                                                                         setSliceState(0)
                                                                                                         window.scrollTo(0,350) 
                                                                                                     }
                                                                                                   }>
                                                                                                       ０
-            </button>   
+                    </button>   
 
 
 
-            <button className='btn-pagination' onClick={()=>{ 
+                    <button className='btn-pagination' onClick={()=>{ 
                                     if(items.filter(el => el).length > sliceState + prodByPage){
                                         setSliceState(sliceState + prodByPage) 
                                         window.scrollTo(0,350) 
@@ -150,28 +140,25 @@ const ItemListContainer = () => {
                                     }
                                 }
                     }>
-                        Siguiente ⇨ 
-            </button>  
+                            Siguiente ⇨ 
+                    </button>  
 
 
-            <span className='sliceAlert'>{sliceAlert}</span>
+                    <span className='sliceAlert'>{sliceAlert}</span>
 
 
 
-        </div>
+            </div>
 
-<div className='infoSliceContainer'>
-            <p className='sliceButtonsP'>De: {sliceState + 1} a: {items.length > sliceState + prodByPage ? sliceState + prodByPage : items.length}</p>
-            <p className='sliceButtonsP'>Paginas de {prodByPage} Productos c/u. {items.length} en Total</p>                 
-</div>
-
-
-                        </>
-
-                    
+                <div className='infoSliceContainer'>
+                        <p className='sliceButtonsP'>De: {sliceState + 1} a: {items.length > sliceState + prodByPage ? sliceState + prodByPage : items.length}</p>
+                        <p className='sliceButtonsP'>Paginas de {prodByPage} Productos c/u. {items.length} en Total</p>                 
+                </div>
 
 
-            :(<Loader/>)
+        </>
+
+                :(<Loader/>)
 
         )
 
