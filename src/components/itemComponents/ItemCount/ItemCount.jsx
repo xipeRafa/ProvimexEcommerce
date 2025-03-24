@@ -11,7 +11,7 @@ import './ItemCount.css'
 
 const ItemCount = ({ setIsAdded, initial, stock, item }) => {
 
-
+console.log(stock)
 
     const { addToCart, isInCart, updateItems } = useContext(CartContext);
 
@@ -68,7 +68,7 @@ const ItemCount = ({ setIsAdded, initial, stock, item }) => {
         <>
             <div className="item-counter">
 
-                <div className="counter-container" disabled={item?.stockSanCarlos < 1 || item?.stockHermosillo < 1 ? true : false}>
+                <div className="counter-container" disabled={item?.stock < 1 ? true : false}>
 
                     <button onClick={removeItem}
                             className="waves-effect waves-light btn counter-btn" 
@@ -84,7 +84,7 @@ const ItemCount = ({ setIsAdded, initial, stock, item }) => {
                     </p>
                     <button onClick={addItem} 
                             className="waves-effect waves-light btn counter-btn"
-                            disabled={item?.stockSanCarlos <= counter || item?.stockHermosillo <= counter ? true : false}>
+                            disabled={item?.stock <= counter ? true : false}>
                         <p>+</p>
                     </button>
 
@@ -100,7 +100,7 @@ const ItemCount = ({ setIsAdded, initial, stock, item }) => {
                         toasti();
                     }}
                     className="waves-effect btn"
-                    disabled={item?.stockSanCarlos < 1 || item?.stockHermosillo < 1 ? true : false} //Deshabilito la opcion de comprar mas si es que ya se llego al limite de stock 
+                    disabled={item?.stock < 1 ? true : false} //Deshabilito la opcion de comprar mas si es que ya se llego al limite de stock 
                 >
                     {
                         isIn !== undefined ? `Agregar ${counter} más` : item?.stockSanCarlos < 1 || item?.stockHermosillo < 1 ? 'Articulo Agotado' : 'Agregar al carrito'

@@ -62,7 +62,7 @@ console.log(item)
 
 
 
-                     <ItemCount isAdded={isAdded} setIsAdded={setIsAdded} initial={1} stock={Number(item.stockHermosillo) + Number(item.stockSanCarlos)} item={item} /> 
+                     <ItemCount isAdded={isAdded} setIsAdded={setIsAdded} initial={1} stock={Number(item.stock)} item={item} /> 
                     {
                         isAdded 
                             && 
@@ -80,11 +80,9 @@ console.log(item)
                     <p>Dia Int: {item.di}</p>
                     <p>Dia Ext: {item.de}</p>
                     <p>Ancho: {item.ancho}</p>
-                {/*    <p>
-                        STOCK   {item?.stockSanCarlos < 1 ? <b className='bg-red'>Sin Stock </b> : item?.stockSanCarlos }
-                                {item?.stockHermosillo < 1 ? <b className='bg-red'>Sin Stock</b> : item?.stockHermosillo}
-                    </p>
-                    <small>COD: { item.id}</small>*/}
+                    <small>{item?.stock < 1 ? <b className='bg-red'>SIN STOCK </b> : 'STOCK ' + item?.stock }</small>
+
+                    {/*<small>COD: { item.id}</small>*/}
 
                  {/*   <span className={item.name === 'Accesorio' ? 'd-nonde' : 'tallasArr' }>Tallas:</span>
                     <div className={item.name === 'Accesorio' ? 'd-nonde' : 'tallasArr' }>
@@ -94,7 +92,7 @@ console.log(item)
                     </div> */}     
 
                     {/*{item.name === 'Accesorio' ? <h6>{item.description}</h6> : <h6>Tela {item.tela}</h6>}*/}
-                    <h6>Descripción: {item.description}</h6>
+                    <h6>{item.description}</h6>
 
                 </div>
 
@@ -102,9 +100,9 @@ console.log(item)
 
                 {/* Solo renderizo el detalle tecnico si es que existe
                     Algunos productos no cuentan con detalle tecnico pero si con una descripción */}
-                {
+              {/*  {
                     item.details !== undefined && <TechInfo item={item} />
-                }
+                }*/}
                 
             </div>
         </div>
