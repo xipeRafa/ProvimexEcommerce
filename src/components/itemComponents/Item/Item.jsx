@@ -29,7 +29,7 @@ const Item = ({ id, codigo, imgUrl, description, di, de, ancho, precio }) => {
                     <p className='title truncate'>{codigo}</p>
                     <p className='description'>Diametro Int: {di}</p>
                     <p className='description'>Diametro Ext: {de}</p>
-                    <p className='description'>Ancho: {ancho}</p>
+                    <p className='description'>Alto: {ancho}</p>
                     <p className='description'>Precio: {precio}</p>
                  
                     {/*{name==='Accesorio' ? <p className='description'>{description}</p> : <p className='description'>Tela {tela}</p>}*/}

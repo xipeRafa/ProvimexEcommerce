@@ -11,7 +11,7 @@ import TechInfo from '../../TechnInfo/TechInfo';
 
 const ItemDetail = ({item}) => {
 
-console.log(item)
+
     const [ bigImg, setBigImg ] = useState('');
     const [ isAdded, setIsAdded ] = useState(false);
 
@@ -77,11 +77,11 @@ console.log(item)
  
                     <h4 className="item-name">{item.codigo}</h4>
                     <h4>$ {item.precio}</h4>
-                    <p>Dia Int: {item.di}</p>
-                    <p>Dia Ext: {item.de}</p>
+                    <p>Diametro Interior: {item.di}</p>
+                    <p>Diametro Exterior: {item.de}</p>
                     <p>Ancho: {item.ancho}</p>
                     <small>{item?.stock < 1 ? <b className='bg-red'>SIN STOCK </b> : 'STOCK ' + item?.stock }</small>
-
+{/*<small>{Number(localStorage.stockLS) < 1 ? <b className='bg-red'>SIN STOCK </b> : 'STOCK ' + Number(localStorage.stockLS) }</small>*/}
                     {/*<small>COD: { item.id}</small>*/}
 
                  {/*   <span className={item.name === 'Accesorio' ? 'd-nonde' : 'tallasArr' }>Tallas:</span>

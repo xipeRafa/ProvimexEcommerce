@@ -39,7 +39,7 @@ export const CartProvider = (props) => {
   const [total, setTotal] = useState(0);
   const [orderIds, setOrderIds] = useState(ordersInLocal);
 
-  const[stateLastOrderInLS,setStateLastOrderInLS]=useState(itemsInLocal2)
+  const[stateLastOrderInLS, setStateLastOrderInLS]=useState(itemsInLocal2)
 
 
   
@@ -54,12 +54,12 @@ export const CartProvider = (props) => {
 
 
   useEffect(() => {
-    updateItems();
-    localStorage.setItem("my-orders-Ids", JSON.stringify(orderIds));
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("lastOrder", JSON.stringify(stateLastOrderInLS));
-    getTotal();    
-  });
+      updateItems();
+      localStorage.setItem("my-orders-Ids", JSON.stringify(orderIds));
+      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("lastOrder", JSON.stringify(stateLastOrderInLS));
+      getTotal();    
+  },[cart, items, total, orderIds]);
 
 
 
@@ -75,7 +75,7 @@ export const CartProvider = (props) => {
 
       const indexOfDuplicate = cart.findIndex((product) => product.id === obj.id);
 
-      obj.quantity = obj.quantity + duplicate.quantity
+      // obj.quantity = obj.quantity + duplicate.quantity
 
       cart.splice(indexOfDuplicate, 1, obj);
 

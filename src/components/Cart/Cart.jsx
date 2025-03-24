@@ -53,7 +53,7 @@ const Cart = () => {
         return(
             <div className="cart-container-empty">
                 <i className="material-icons empty-cart">shopping_cart</i>
-                <h4 className="empty-cart-title">Parece que tu carrito está vacio <br/> </h4>
+                <h4 className="empty-cart-title">SU CARRITO ESTÁ VACIO <br/> </h4>
                 <Link to="/ProvimexEcommerce/"><button className="waves-effect waves-light btn backToLanding-btn">Volver a la tienda</button></Link> 
             </div>
         )
