@@ -1,13 +1,12 @@
 //Hooks
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import { getDocs, collection } from 'firebase/firestore'
+
 //Components
 import ItemList from '../ItemList/ItemList'
 import Loader from '../../Loader/Loader';
 
-//Firestore
-import db from '../../../firebase/firebaseConfig';
+
 
 //Particular CSS
 import './ItemListContainer.css'
@@ -17,59 +16,37 @@ import './ItemListContainer.css'
 
 
 
-const ItemListContainer = () => {
+const ItemListContainer = ({items}) => {
+
+
+
 
 
     const { pathname } = useLocation();
 
     const {categoryId} = useParams();//Categoria definida en ruta para saber que productos filtrar
 
-    const [items, setItems] = useState([]);
-
-    console.log(items)
-
-    localStorage.setItem('arrItems', JSON.stringify(items))
 
 
 
-
-
-
-
-
-
-
-
-    useEffect(() => {
-
-        let isMounted = true;
-
-      /*   const db = getFirestore(); */
-        const itemCollection = collection(db, "inventario");
-
-        getDocs(itemCollection).then(( querySnapshot ) => {
-
-            if(isMounted){
-
-                if(querySnapshot.size === 0 ) {
-                    console.log('No results!')
-                }
     
-                const documents = querySnapshot.docs.map( doc => ( {id: doc.id, ...doc.data()} ) )
-                setItems( documents ) ;
-                //console.log(documents)
-               
-            }
-        })
-        .catch(err => {
-            console.log('Error searching items', err );
-        });
 
-        return () => {
-            isMounted = false; 
-        };
 
-    },[]);
+    // let arrDB
+    // if(localStorage.arrItems === undefined || localStorage.arrItems === '[]'){
+    //         arrDB = []
+    //         setTimeout(()=>{
+    //             localStorage.setItem('arrItems', JSON.stringify(items))
+    //         },1222)
+
+    //         setTimeout(()=>{
+    //             location.reload()
+    //         },2222)
+    // }else{
+    //         arrDB = JSON.parse(localStorage.arrItems)
+    // }
+
+
 
 
 
@@ -90,17 +67,17 @@ const ItemListContainer = () => {
           const[sliceAlert, setSliceAlert]=useState('')
                                       
 
-      
+
 
 
 
 
         return(
 
-        (items.length > 0) ? <>
+        (localStorage.arrItems) ? <>
             
             <div className="item-list-container">  
-                    <ItemList items={items.slice(sliceState, sliceState + prodByPage)} />  
+                    <ItemList items={JSON.parse(localStorage.arrItems).slice(sliceState, sliceState + prodByPage)} />  
             </div>
 
 

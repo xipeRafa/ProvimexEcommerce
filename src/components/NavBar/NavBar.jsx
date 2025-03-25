@@ -18,7 +18,7 @@ const NavBar = () => {
                 <div className="nav-wrapper">
                     {/* El atributo exact hace que el router busque exactamente la ruta / y no todas las q empiezen con / */}
                     <NavLink to="/ProvimexEcommerce" className="brand-logo" >
-                        <img src={logo} alt="NextGym" />
+                        <img src={logo} alt="provimex" />
                     </NavLink>
                     <a data-target="mobile-demo" className="sidenav-trigger">
                         <i className="material-icons">menu</i>

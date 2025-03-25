@@ -32,13 +32,57 @@ import './assets/styles/app.css'
 import './assets/styles/colors.css'
 import Foother from './components/Footer/Foother';
 
-
-  
+//Firestore
+import db from './firebase/firebaseConfig';
+ import { getDocs, collection } from 'firebase/firestore' 
 
   
 
 
 const App = () => {
+
+
+      const [items, setItems] = useState([]);
+
+    // console.log(items)
+
+
+
+
+    useEffect(() => {
+
+        let isMounted = true;
+
+      /*   const db = getFirestore(); */
+        const itemCollection = collection(db, "inventario");
+
+        getDocs(itemCollection).then(( querySnapshot ) => {
+
+            if(isMounted){
+
+                if(querySnapshot.size === 0 ) {
+                    console.log('No results!')
+                }
+    
+                const documents = querySnapshot.docs.map( doc => ( {id: doc.id, ...doc.data()} ) )
+                setItems( documents ) ;
+                //console.log(documents)
+               
+                localStorage.setItem('arrItems', JSON.stringify(documents))
+            }
+        })
+        .catch(err => {
+            console.log('Error searching items', err );
+        });
+
+
+        console.log('GET')
+
+        return () => {
+            isMounted = false; 
+        };
+
+    },[]);
 
 
     const { pathname } = useLocation();
@@ -90,8 +134,8 @@ const App = () => {
                 <NavBar/>
 
                 <Routes>
-                    <Route path="/ProvimexEcommerce" element={<ItemListContainer />}/>
-                    <Route path="/ProvimexEcommerce/categories/:categoryId" element={<ItemListContainer/>}/>
+                    <Route path="/ProvimexEcommerce" element={<ItemListContainer items={items} />}/>
+                    <Route path="/ProvimexEcommerce/categories/:categoryId" element={<ItemListContainer items={items} />}/>
                     <Route path="/ProvimexEcommerce/item/:id" element={<ItemDetailContainer/>}/>
 
                     <Route path="/ProvimexEcommerce/cart" element={<Cart/>}/>

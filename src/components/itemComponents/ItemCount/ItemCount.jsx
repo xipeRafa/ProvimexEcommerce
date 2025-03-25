@@ -29,10 +29,6 @@ const ItemCount = ({ setIsAdded, initial, stock, item }) => {
     const removeItem = () => setCounter(counter - 1);
     const addItem = () => {
         setCounter(counter + 1)
-        setTimeout(()=>{
-            localStorage.stockLS = Number(localStorage.stockLS) - counter
-        },2000)
-
     }
 
     const toasti = () => {
