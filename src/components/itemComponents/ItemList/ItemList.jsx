@@ -8,7 +8,6 @@ import './ItemList.css';
 
 const ItemList = ({ items }) => {
 
-
     return (
         
         <div className="ItemList">
