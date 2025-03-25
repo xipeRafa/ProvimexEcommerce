@@ -77,7 +77,8 @@ const ItemListContainer = ({items}) => {
         (localStorage.arrItems) ? <>
             
             <div className="item-list-container">  
-                    <ItemList items={JSON.parse(localStorage.arrItems).slice(sliceState, sliceState + prodByPage)} />  
+                    <ItemList items={JSON.parse(localStorage.arrItems)
+                    .slice(sliceState, sliceState + prodByPage)} />  
             </div>
 
 

@@ -17,6 +17,8 @@ import tresImg from '../../../imgs/baleros/3.jpg'
 import cuatroImg from '../../../imgs/baleros/4.jpg'
 import cincoImg from '../../../imgs/baleros/5.jpg'
 
+import seisImg from '../../../imgs/baleros/6.jpg'
+
 
 
 const Item = ({ id, codigo, imgUrl, description, di, de, ancho, precio }) => {
@@ -33,7 +35,10 @@ let imgVar
                 "RODAMIENTO A BOLAS DE CONTACTO ANGULAR":dosImg,
                 "RODAMIENTO OSCILANTE DE RODILLOS":tresImg,
                 "RODAMIENTO DE RODILLOS CILINDRICOS":cuatroImg,
-                "RODAMIENTO AXIAL DE BOLAS":cincoImg, 
+                "RODAMIENTO AXIAL DE BOLAS":cincoImg,
+                "RODAMIENTO DE RODILLO CONICO":seisImg,
+                "ROADAMIENTO A BOLAS DE CONTACTO ANGULAR":dosImg,
+                "RODAMIENTO RIGIDO A BOLAS":unoImg
             };
 
             const mySwitchFunction = (descriptio) => {

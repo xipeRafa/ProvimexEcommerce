@@ -9,8 +9,8 @@
   overflow: hidden;
   cursor: pointer;
   transition: .3s all;
-  width: 260px;
-  max-width: 240px;
+  width: 270px;
+  max-width: 270px;
   max-height: fit-content;
   margin-bottom: 40px;
 }
@@ -29,7 +29,7 @@ img {
 }
 .title {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: .6px;
   text-align: center;
   white-space: nowrap;
