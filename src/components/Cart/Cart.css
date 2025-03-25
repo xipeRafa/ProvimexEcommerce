@@ -13,7 +13,7 @@
 }
 .cart-container .cart .cart-columns, .cart-container-empty .cart .cart-columns {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto ;
   align-items: center;
   justify-content: space-around;
   height: 7vh;
@@ -26,15 +26,16 @@
   text-align: center;
 }
 .cart-container .cart .cart-columns p:first-child, .cart-container-empty .cart .cart-columns p:first-child {
-  width: 2vw;
+  width: 0px;
   text-align: start;
 }
 .cart-container .cart .cart-items, .cart-container-empty .cart .cart-items {
-  min-height: 40vh;
-  max-height: 40vh;
+  min-height: 50vh;
+  max-height: 50vh;
   background-color: #ffffff;
   overflow-y: auto;
   overflow-x: hidden;
+
 }
 .cart-container .cart .cart-items::-webkit-scrollbar, .cart-container-empty .cart .cart-items::-webkit-scrollbar {
   width: 7px;

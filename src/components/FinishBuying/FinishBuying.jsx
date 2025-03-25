@@ -9,7 +9,13 @@ const FinishBuying = () => {
 
         <div className="finish-buying">
             <Link to="/ProvimexEcommerce/cart" 
-                className="waves-effect btn">
+                className="waves-effect btn"    onClick={()=>{
+
+                                                    setTimeout(()=>{
+                                                        window.scrollTo(0,250)
+                                                    },100)     
+
+                                                }}>
                 Ir al carrito
                 <i className="material-icons cart">shopping_cart</i>
             </Link>

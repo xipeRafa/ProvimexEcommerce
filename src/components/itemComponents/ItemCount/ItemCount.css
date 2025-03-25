@@ -20,7 +20,8 @@
   border-radius: 6px;
   padding: 0 .3rem;
   border: 2px solid rgba(255, 255, 255, 0.663);
-  margin-bottom: 19px;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .item-counter .counter-container .counter-btn {

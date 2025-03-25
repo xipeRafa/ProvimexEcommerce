@@ -25,10 +25,6 @@ const Item = ({ id, codigo, imgUrl, description, di, de, ancho, precio }) => {
 
 
 
-//         const [imgState, setImgState]=useState('hello')
-// console.log(imgState)
-let imgVar
-
 
             const imgsObj = {
                 "RODAMIENTO RIGIDO DE BOLAS":unoImg,
@@ -37,19 +33,12 @@ let imgVar
                 "RODAMIENTO DE RODILLOS CILINDRICOS":cuatroImg,
                 "RODAMIENTO AXIAL DE BOLAS":cincoImg,
                 "RODAMIENTO DE RODILLO CONICO":seisImg,
-                "ROADAMIENTO A BOLAS DE CONTACTO ANGULAR":dosImg,
-                "RODAMIENTO RIGIDO A BOLAS":unoImg
+                "ROADAMIENTO A BOLAS DE CONTACTO ANGULAR":dosDosImg,
+                "RODAMIENTO RIGIDO A BOLAS":unoUnoImg
             };
 
-            const mySwitchFunction = (descriptio) => {
-                    if(descriptio){
-                           // console.log(descriptio)
-                            imgsObj[descriptio]
-                    }
-            };
+        
 
-           
-console.log(imgVar)
 
 
     return (
@@ -73,7 +62,7 @@ console.log(imgVar)
                     <p className='description'>Diametro Ext: {de}</p>
                     <p className='description'>Alto: {ancho}</p>
                     <p className='description'>Precio: {precio}</p>
-                    {/*<small className=''> {description}</small>*/}
+                    <small className='smallDescription'> {description}</small>
 
                  
                     {/*{name==='Accesorio' ? <p className='description'>{description}</p> : <p className='description'>Tela {tela}</p>}*/}

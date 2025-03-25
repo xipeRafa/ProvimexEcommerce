@@ -15,7 +15,7 @@ import CartItem from '../CartItem/CartItem';
 
 const Cart = () => {
 
-    const { cart, total, deleteItem}= useContext(CartContext);
+    const { cart, total, deleteItem }= useContext(CartContext);
     /* localStorage.setItem('CartLocal', cart) */
 
 
@@ -26,16 +26,18 @@ const Cart = () => {
                 <div className="cart">
                     <div className="cart-columns">
                         <p></p>
-                        <p className="truncate">Imagen</p>
-                        <p className="truncate">Codigo</p>
-                        <p className="truncate">Cantidad</p>
-                        <p className="truncate">Valor unitario</p>
-                        <p className="truncate">Total</p>
+                        <p>Imagen</p>
+                        {/*<p className="truncate">Codigo</p>*/}
+                        <p>Cantidad</p>
+                        <p>Valor</p>
+                        <p>Total</p>
                     </div>
                     <div className="cart-items">
                         {
-                            cart.map( ({ codigo, quantity, imgUrl, precio }) =>(
-                                <CartItem key={String(precio+232)} codigo={codigo} quantity={quantity} precio={precio} imgUrl={imgUrl} deleteItem={deleteItem}  />
+                            cart.map( ({ codigo, quantity, precio, description }) =>(
+                                <CartItem key={String(precio+232)} 
+                                codigo={codigo} description={description} quantity={quantity} precio={precio} 
+                                 deleteItem={deleteItem}  />
                             ))
                         }
                     </div>

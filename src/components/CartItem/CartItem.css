@@ -1,6 +1,6 @@
 .cart-item {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   justify-content: space-around;
   align-items: center;
   min-height: 60px;
@@ -28,19 +28,17 @@
   }
 }
 
-.cart-item .item-img {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 100%;
-  width: 100%;
+
+
+.cart-item .item-img img {
+  height: 70%;
+  width: 70%;
 }
 
 .cart-item .delete-item {
   cursor: pointer;
   color: #7A7A7A;
-  min-width: 2vw;
-  max-width: 2vw;
+   width: 0;
 }
 
 .cart-item .delete-item:hover {

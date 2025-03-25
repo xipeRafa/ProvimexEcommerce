@@ -9,11 +9,42 @@ import FinishBuying from '../../FinishBuying/FinishBuying';
 import TechInfo from '../../TechnInfo/TechInfo';
 
 
-const ItemDetail = ({item}) => {
+import unoImg from '../../../imgs/baleros/1.jpg'
+import unoUnoImg from '../../../imgs/baleros/11.jpg'
 
+import dosImg from '../../../imgs/baleros/2.jpg'
+import dosDosImg from '../../../imgs/baleros/22.jpg'
+
+import tresImg from '../../../imgs/baleros/3.jpg'
+import cuatroImg from '../../../imgs/baleros/4.jpg'
+import cincoImg from '../../../imgs/baleros/5.jpg'
+
+import seisImg from '../../../imgs/baleros/6.jpg'
+
+
+
+
+
+const ItemDetail = ({item}) => {
+console.log(item)
 
     const [ bigImg, setBigImg ] = useState('');
     const [ isAdded, setIsAdded ] = useState(false);
+
+
+
+     const imgsObj = {
+                "RODAMIENTO RIGIDO DE BOLAS":unoImg,
+                "RODAMIENTO A BOLAS DE CONTACTO ANGULAR":dosImg,
+                "RODAMIENTO OSCILANTE DE RODILLOS":tresImg,
+                "RODAMIENTO DE RODILLOS CILINDRICOS":cuatroImg,
+                "RODAMIENTO AXIAL DE BOLAS":cincoImg,
+                "RODAMIENTO DE RODILLO CONICO":seisImg,
+                "ROADAMIENTO A BOLAS DE CONTACTO ANGULAR":dosDosImg,
+                "RODAMIENTO RIGIDO A BOLAS":unoUnoImg
+            };
+
+
 
 
     return (
@@ -51,25 +82,32 @@ const ItemDetail = ({item}) => {
                         </div>*/}
 
 
-                
 
 
+                            <div  className="big-image" >
+                                    <img src={imgsObj[item.description]} alt="imagen"/>
+                            </div>
 
-                 <div  className="big-image" style={{backgroundImage:`url("https://http2.mlstatic.com/D_NQ_NP_2X_645063-MLM76032781605_042024-F.webp")`}}>
 
-                </div>
                     </div>
 
 
 
-                     <ItemCount isAdded={isAdded} setIsAdded={setIsAdded} initial={1} stock={Number(item.stock)} item={item} /> 
-                    {
-                        isAdded 
-                            && 
-                        <FinishBuying/>
-                    } 
+                    <ItemCount isAdded={isAdded} setIsAdded={setIsAdded} initial={1} stock={Number(item.stock)} item={item} /> 
+
+                    { isAdded && <FinishBuying/> } 
+
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
             <div className="container-two">
 
 
