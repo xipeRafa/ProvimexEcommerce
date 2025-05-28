@@ -67,9 +67,9 @@ const ItemListContainer = ({items}) => {
           const[sliceAlert, setSliceAlert]=useState('')
                                       
 
-        const[diState, setDiState]=useState()
-        const[deState, setDeState]=useState()
-        const[anchoState, setAnchoState]=useState()
+        const[diState, setDiState]=useState(null)
+        const[deState, setDeState]=useState(null)
+        const[anchoState, setAnchoState]=useState(null)
 
 
 
@@ -105,6 +105,7 @@ const ItemListContainer = ({items}) => {
 
             <div className="item-list-container">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
+                    .filter(el => el.di == 55)
                     .slice(sliceState, sliceState + prodByPage)} />  
             </div>
 

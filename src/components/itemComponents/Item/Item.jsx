@@ -37,7 +37,7 @@ const Item = ({ id, codigo, imgUrl, description, di, de, ancho, precio }) => {
                 "RODAMIENTO RIGIDO A BOLAS":unoUnoImg
             };
 
-        
+          
 
 
 
