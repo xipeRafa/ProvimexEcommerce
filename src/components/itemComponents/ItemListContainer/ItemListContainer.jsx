@@ -82,21 +82,24 @@ const ItemListContainer = ({items}) => {
         {/*  <label>Codigo:</label>
           <input type='text' value={2} />*/}
 
-          <label>Diametro Interior:</label>
-          <input type='number' min='0' value={diState} onChange={(e)=>{setDiState(Number(e.target.value))}}/>
+            <label>Diametro Interior:
+                    <input type='number'  value={diState} onChange={(e)=>{setDiState(Number(e.target.value))}}/>
+            </label>
+            
+            <label>Diametro Exterior:
+                    <input type='number'  value={deState} onChange={(e)=>{setDeState(Number(e.target.value))}}/>
+            </label>
 
-          <label>Diametro Exterior:</label>
-          <input type='number' min='0' value={deState} onChange={(e)=>{setDeState(Number(e.target.value))}}/>
-
-          <label>Altura:</label>
-          <input type='number' min='0' value={anchoState} onChange={(e)=>{setAnchoState(Number(e.target.value))}}/>
+            <label>Altura:
+                    <input type='number' value={anchoState} onChange={(e)=>{setAnchoState(Number(e.target.value))}}/>
+            </label>
         </div>
             
             <div className="item-list-container2">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
-                    .filter(el => el.di === diState)
-                    .filter(el => el.de === deState)
-                    .filter(el => el.ancho === anchoState)
+                    .filter(el => el.di == diState)
+                    .filter(el => el.de == deState)
+                    .filter(el => el.ancho == anchoState)
                     .slice(sliceState, sliceState + prodByPage)} />  
             </div>
 

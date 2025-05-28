@@ -5,8 +5,8 @@ const Heading = () => {
       return (
            
                   <div className="heading">
-                        <p>Somos una Empresa que</p>
-                        <h2>Brinda Soluciones Industriales.</h2>
+                        {/*<p>Somos una Empresa que</p>*/}
+                        <h2>Soluciones Industriales.</h2>
                         <div className='imgContainer'>
                               <img className='polanco' src={logo} alt="polanco" />
                         </div>
