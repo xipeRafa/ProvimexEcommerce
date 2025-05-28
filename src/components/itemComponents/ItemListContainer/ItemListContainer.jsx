@@ -117,13 +117,13 @@ const ItemListContainer = ({items}) => {
                  <input type='reset' 
                     style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}}
                     value='RESET ↻' 
-                //     onClick={()=>{
-                //         location.reload()
-                //         // setDiState('')
-                //         // setDeState('')
-                //         // setAnchoState('')
-                //     }
-                // }
+                    onClick={()=>{
+                        // location.reload()
+                        setDiState()
+                        setDeState()
+                        setAnchoState()
+                    }
+                }
                 />
         </form>
            
