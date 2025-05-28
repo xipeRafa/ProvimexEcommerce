@@ -77,53 +77,55 @@ const ItemListContainer = ({items}) => {
 
         (localStorage.arrItems) ? <>
 
-        <div className='filters'>
+        <form className='filters'>
         {/*  <label>Codigo:</label>
           <input type='text' value={2} />*/}
 
             <label>Diametro Interior:
-                    <input type='number' min='0' value={diState} onChange={(e)=>{
+                    <input type='number' min='0'  onChange={(e)=>{
 
                         setDiState(Number(e.target.value))
 
-                        if(String(diState).charAt(0) == 0){
-                            setDiState(Number(String(e).charAt(0).slice(0)))
-                        }
+                        // if(String(diState).charAt(0) == 0){
+                        //     setDiState(Number(String(e).charAt(0).slice(0)))
+                        // }
       
                     }}/>
             </label>
             
             <label>Diametro Exterior:
-                    <input type='number'  value={deState} onChange={(e)=>{
+                    <input type='number' min='0' onChange={(e)=>{
                           setDeState(Number(e.target.value))
 
-                        if(String(deState).charAt(0) == 0){
-                            setDeState(Number(String(e).charAt(0).slice(0)))
-                        }
+                        // if(String(deState).charAt(0) == 0){
+                        //     setDeState(Number(String(e).charAt(0).slice(0)))
+                        // }
                     }}/>
             </label>
 
             <label>Altura:
-                    <input type='number' value={anchoState} onChange={(e)=>{
+                    <input type='number' min='0' onChange={(e)=>{
                           setAnchoState(Number(e.target.value))
 
-                        if(String(anchoState).charAt(0) == 0){
-                            setAnchoState(Number(String(e).charAt(0).slice(0)))
-                        }
+                        // if(String(anchoState).charAt(0) == 0){
+                        //     setAnchoState(Number(String(e).charAt(0).slice(0)))
+                        // }
                     }}/>
             </label>
 
             
-                 <input type='button' 
+                 <input type='reset' 
                     style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}}
                     value='RESET ↻' 
-                    onClick={()=>{
-                        setDiState('')
-                        setDeState('')
-                        setAnchoState('')
-                    }
-                }/>
-        </div>
+                //     onClick={()=>{
+                //         location.reload()
+                //         // setDiState('')
+                //         // setDeState('')
+                //         // setAnchoState('')
+                //     }
+                // }
+                />
+        </form>
            
             <div className="item-list-container2">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
