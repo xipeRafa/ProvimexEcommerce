@@ -67,7 +67,9 @@ const ItemListContainer = ({items}) => {
           const[sliceAlert, setSliceAlert]=useState('')
                                       
 
-
+        const[diState, setDiState]=useState()
+        const[deState, setDeState]=useState()
+        const[anchoState, setAnchoState]=useState()
 
 
 
@@ -75,7 +77,29 @@ const ItemListContainer = ({items}) => {
         return(
 
         (localStorage.arrItems) ? <>
+
+        <div className='filters'>
+        {/*  <label>Codigo:</label>
+          <input type='text' value={2} />*/}
+
+          <label>Diametro Interior:</label>
+          <input type='number' min='0' value={diState} onChange={(e)=>{setDiState(Number(e.target.value))}}/>
+
+          <label>Diametro Exterior:</label>
+          <input type='number' min='0' value={deState} onChange={(e)=>{setDeState(Number(e.target.value))}}/>
+
+          <label>Altura:</label>
+          <input type='number' min='0' value={anchoState} onChange={(e)=>{setAnchoState(Number(e.target.value))}}/>
+        </div>
             
+            <div className="item-list-container2">  
+                    <ItemList items={JSON.parse(localStorage.arrItems)
+                    .filter(el => el.di === diState)
+                    .filter(el => el.de === deState)
+                    .filter(el => el.ancho === anchoState)
+                    .slice(sliceState, sliceState + prodByPage)} />  
+            </div>
+
             <div className="item-list-container">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
                     .slice(sliceState, sliceState + prodByPage)} />  

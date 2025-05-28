@@ -24,14 +24,14 @@
 
 
 .imgContainer{
-  padding: 0;
-  background-color: black;
-  margin-bottom: 20px;
+  /*padding: 0;*/
+  background-color:black;
+  /*margin-bottom: 20px;*/
 }
 
 .polanco{
-  width: 80%;
-  
+  width: 76%;
+  margin: 0;
 }
 
 @media (max-width: 1000px) {

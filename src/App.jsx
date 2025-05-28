@@ -131,21 +131,21 @@ const App = () => {
 
             <CartProvider>
 
-                <NavBar/>
+                    <NavBar/>
 
-                <Routes>
-                    <Route path="/ProvimexEcommerce" element={<ItemListContainer items={items} />}/>
-                    <Route path="/ProvimexEcommerce/categories/:categoryId" element={<ItemListContainer items={items} />}/>
-                    <Route path="/ProvimexEcommerce/item/:id" element={<ItemDetailContainer/>}/>
+                    <Routes>
+                            <Route path="/ProvimexEcommerce" element={<ItemListContainer items={items} />}/>
+                            <Route path="/ProvimexEcommerce/categories/:categoryId" element={<ItemListContainer items={items} />}/>
+                            <Route path="/ProvimexEcommerce/item/:id" element={<ItemDetailContainer/>}/>
 
-                    <Route path="/ProvimexEcommerce/cart" element={<Cart/>}/>
-                    <Route path="/ProvimexEcommerce/order" element={<BuyingForm/>}/>
-                    <Route path="/ProvimexEcommerce/my-orders" element={<MyOrders/>}/>
+                            <Route path="/ProvimexEcommerce/cart" element={<Cart/>}/>
+                            <Route path="/ProvimexEcommerce/order" element={<BuyingForm/>}/>
+                            <Route path="/ProvimexEcommerce/my-orders" element={<MyOrders/>}/>
 
-                    {/*<Route path="/polancoEcommerc/accesorios" element={<Accesorios />}/>*/}
+                            {/*<Route path="/polancoEcommerc/accesorios" element={<Accesorios />}/>*/}
 
-                    <Route path="*"  element={<Navigate to="/ProvimexEcommerce" />}/> 
-                </Routes>
+                            <Route path="*"  element={<Navigate to="/ProvimexEcommerce" />}/> 
+                    </Routes>
                 
             </CartProvider>
 

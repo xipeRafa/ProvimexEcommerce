@@ -57,10 +57,10 @@ const Item = ({ id, codigo, imgUrl, description, di, de, ancho, precio }) => {
 
                 <div className="info-container">
                     
-                    {/*<p className='title truncate'>{codigo}</p>*/}
-                    <p className='description'>Diametro Int: {di}</p>
-                    <p className='description'>Diametro Ext: {de}</p>
-                    <p className='description'>Alto: {ancho}</p>
+                    <p className='title truncate'>{codigo}</p>
+                    <p className='description'>Diametro Int: {di} mm</p>
+                    <p className='description'>Diametro Ext: {de} mm</p>
+                    <p className='description'>Alto: {ancho} mm</p>
                     <p className='description'>Precio: {precio}</p>
                     <small className='smallDescription'> {description}</small>
 
