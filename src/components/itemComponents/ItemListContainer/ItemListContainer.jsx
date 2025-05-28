@@ -114,7 +114,15 @@ const ItemListContainer = ({items}) => {
             </label>
 
             
-                 <input type='button' style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}} value='RESET ↻' onClick={()=>location.reload()}/>
+                 <input type='button' 
+                    style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}}
+                    value='RESET ↻' 
+                    onClick={()=>{
+                        setDiState('')
+                        setDeState('')
+                        setAnchoState('')
+                    }
+                }/>
         </div>
            
             <div className="item-list-container2">  
@@ -122,7 +130,12 @@ const ItemListContainer = ({items}) => {
                     .filter(el => el.di == diState)
                     .filter(el => el.de == deState)
                     .filter(el => el.ancho == anchoState)
-                    .slice(sliceState, sliceState + prodByPage)} />  
+                    .filter(el => el.ancho !== '')
+                    .filter(el => el.ancho !== 0)
+                    .filter(el => el.di !== '')
+                    .filter(el => el.di !== 0)
+                    // .slice(sliceState, sliceState + prodByPage)
+                } />  
             </div>
 
             <div className="item-list-container">  
@@ -145,12 +158,14 @@ const ItemListContainer = ({items}) => {
 
 
 
-                    <button className={sliceState === prodByPage || sliceState === 0 ? 'd-none' : 'siguiente'} onClick={()=>{ 
-                                                                                                        setSliceState(0)
-                                                                                                        window.scrollTo(0,350) 
-                                                                                                    }
-                                                                                                  }>
-                                                                                                      ０
+                    <button className={
+                        sliceState === prodByPage || sliceState === 0 ? 'd-none' : 'siguiente'} 
+                        onClick={()=>{ 
+                                setSliceState(0)
+                                window.scrollTo(0,350) 
+                            }
+                        }>
+                                    ０
                     </button>   
 
 
@@ -178,7 +193,9 @@ const ItemListContainer = ({items}) => {
             </div>
 
                 <div className='infoSliceContainer'>
-                        <p className='sliceButtonsP'>De: {sliceState + 1} a: {items.length > sliceState + prodByPage ? sliceState + prodByPage : items.length}</p>
+                        <p className='sliceButtonsP'>
+                            De: {sliceState + 1} 
+                            a: {items.length > sliceState + prodByPage ? sliceState + prodByPage : items.length}</p>
                         <p className='sliceButtonsP'>Paginas de {prodByPage} Productos c/u. {items.length} en Total</p>                 
                 </div>
 
