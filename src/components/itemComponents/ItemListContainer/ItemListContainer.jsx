@@ -67,10 +67,9 @@ const ItemListContainer = ({items}) => {
           const[sliceAlert, setSliceAlert]=useState('')
                                       
 
-        const[diState, setDiState]=useState(null)
-        const[deState, setDeState]=useState(null)
-        const[anchoState, setAnchoState]=useState(null)
-
+        const[diState, setDiState]=useState()
+        const[deState, setDeState]=useState()
+        const[anchoState, setAnchoState]=useState()
 
 
 
@@ -83,18 +82,41 @@ const ItemListContainer = ({items}) => {
           <input type='text' value={2} />*/}
 
             <label>Diametro Interior:
-                    <input type='number'  value={diState} onChange={(e)=>{setDiState(Number(e.target.value))}}/>
+                    <input type='number' min='0' value={diState} onChange={(e)=>{
+
+                        setDiState(Number(e.target.value))
+
+                        if(String(diState).charAt(0) == 0){
+                            setDiState(Number(String(e).charAt(0).slice(0)))
+                        }
+      
+                    }}/>
             </label>
             
             <label>Diametro Exterior:
-                    <input type='number'  value={deState} onChange={(e)=>{setDeState(Number(e.target.value))}}/>
+                    <input type='number'  value={deState} onChange={(e)=>{
+                          setDeState(Number(e.target.value))
+
+                        if(String(deState).charAt(0) == 0){
+                            setDeState(Number(String(e).charAt(0).slice(0)))
+                        }
+                    }}/>
             </label>
 
             <label>Altura:
-                    <input type='number' value={anchoState} onChange={(e)=>{setAnchoState(Number(e.target.value))}}/>
+                    <input type='number' value={anchoState} onChange={(e)=>{
+                          setAnchoState(Number(e.target.value))
+
+                        if(String(anchoState).charAt(0) == 0){
+                            setAnchoState(Number(String(e).charAt(0).slice(0)))
+                        }
+                    }}/>
             </label>
-        </div>
+
             
+                 <input type='button' style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}} value='RESET ↻' onClick={()=>location.reload()}/>
+        </div>
+           
             <div className="item-list-container2">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
                     .filter(el => el.di == diState)
@@ -105,7 +127,6 @@ const ItemListContainer = ({items}) => {
 
             <div className="item-list-container">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
-                    .filter(el => el.di == 55)
                     .slice(sliceState, sliceState + prodByPage)} />  
             </div>
 
