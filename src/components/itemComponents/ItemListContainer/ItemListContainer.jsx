@@ -72,6 +72,8 @@ const ItemListContainer = ({items}) => {
         const[anchoState, setAnchoState]=useState()
 
 
+        const [descriptionState, setDescriptionState]=useState()
+
 
         return(
 
@@ -122,10 +124,38 @@ const ItemListContainer = ({items}) => {
                         setDiState()
                         setDeState()
                         setAnchoState()
+                        setDescriptionState('BUSCAR POR TIPO:')
                     }
                 }
                 />
         </form>
+
+
+        <div className='selectTipo'>
+            <select name="select" onChange={(e)=>setDescriptionState(e.target.value)}>
+                    <option >BUSCAR POR TIPO:</option>
+
+                    <option value="RODAMIENTO A BOLAS DE CONTACTO ANGULAR">RODAMIENTO A BOLAS DE CONTACTO ANGULAR</option>
+                    <option value="RODAMIENTO OSCILANTE DE RODILLOS">RODAMIENTO OSCILANTE DE RODILLOS</option>
+                    <option value="RODAMIENTO DE RODILLOS CILINDRICOS">RODAMIENTO DE RODILLOS CILINDRICOS</option>
+
+                    <option value="RODAMIENTO AXIAL DE BOLAS">RODAMIENTO AXIAL DE BOLAS</option>
+                    <option value="RODAMIENTO DE RODILLO CONICO">RODAMIENTO DE RODILLO CONICO</option>
+                    <option value="ROADAMIENTO A BOLAS DE CONTACTO ANGULAR">ROADAMIENTO A BOLAS DE CONTACTO ANGULAR</option>
+
+                    <option value="RODAMIENTO RIGIDO A BOLAS">RODAMIENTO RIGIDO A BOLAS</option>
+                    <option value="RODAMIENTO RIGIDO DE BOLAS">RODAMIENTO RIGIDO DE BOLAS</option>
+
+            </select>
+
+            {/*<input type='button' 
+                style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}} 
+                value='VER TODO' 
+                onClick={()=>setDescriptionState()}/>*/}
+        </div>
+
+
+           
            
             <div className="item-list-container2">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
@@ -140,10 +170,22 @@ const ItemListContainer = ({items}) => {
                 } />  
             </div>
 
+
+
+             <div className="item-list-container2">  
+                    <ItemList items={JSON.parse(localStorage.arrItems)
+                    .filter(el => el.description == descriptionState)
+                    .slice(sliceState, sliceState + prodByPage)} />  
+            </div>
+
+
+
             <div className="item-list-container">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
                     .slice(sliceState, sliceState + prodByPage)} />  
             </div>
+
+           
 
 
             <div className='btn-pagination'>

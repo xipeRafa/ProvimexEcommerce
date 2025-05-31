@@ -125,3 +125,11 @@ button:focus{
     text-align: center;
   }
 }
+
+
+
+.selectTipo{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10px;
+}
