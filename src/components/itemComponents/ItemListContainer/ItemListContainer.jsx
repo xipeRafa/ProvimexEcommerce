@@ -75,14 +75,15 @@ const ItemListContainer = ({items}) => {
         const [descriptionState, setDescriptionState]=useState()
 
         const [codigoState, setCodigoState]=useState([{ancho:0}])
+        const [codigoStateText, setCodigoStateText]=useState('')
 
-        console.log(codigoState)
 
         const handlerSearch=(e)=>{
             const {name, value}=e.target
+            setCodigoStateText(value)
             if(value.length >3){
                 setCodigoState(items.filter((el) => el.codigo.indexOf(value) > -1));
-            } 
+            }
         }
 
 
@@ -122,6 +123,7 @@ const ItemListContainer = ({items}) => {
                             setAnchoState()
                             setDescriptionState('BUSCAR POR TIPO:')
                             setCodigoState([{ancho:0}])
+                            setCodigoStateText('')
                         }
                     }
             />
@@ -131,6 +133,7 @@ const ItemListContainer = ({items}) => {
         <div className='selectTipo'>
 
             <input 
+                value={codigoStateText}
                 type='search' 
                 placeholder=' 🔍 Buscar por Codigo' 
                 onChange={(e)=>handlerSearch(e)} 
