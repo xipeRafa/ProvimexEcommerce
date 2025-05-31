@@ -5,7 +5,7 @@
       --text-color: #1e1c2a;
       --bg-color:rgb(233, 231, 231) ;
       --bg-color-m: #14141481;
-      --bg-color-l: #26262637;
+      --bg-color-l: rgba(200,200,200, .5);
     
       --big-font: 4rem;
       --h2-font: 2.24rem;
