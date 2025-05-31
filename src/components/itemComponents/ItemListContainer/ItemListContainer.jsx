@@ -85,7 +85,7 @@ const ItemListContainer = ({items}) => {
             } 
         }
 
-        const[resetState, setResetState]=useState()
+
 
         return(
 
@@ -157,13 +157,12 @@ const ItemListContainer = ({items}) => {
 
             <input 
                 type='search' 
-                value={resetState}
                 placeholder=' 🔍 Buscar por Codigo' 
                 onChange={(e)=>handlerSearch(e)} 
             />
 
 
-            <div >
+            <div>
             <input  type='reset' 
                     value='RESET ↻' 
                     className='resetButton'
@@ -173,7 +172,6 @@ const ItemListContainer = ({items}) => {
                             setAnchoState()
                             setDescriptionState('BUSCAR POR TIPO:')
                             setCodigoState([{ancho:0}])
-                            setResetState('')
                         }
                     }
             />
