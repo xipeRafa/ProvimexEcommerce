@@ -2,7 +2,7 @@
 import {useEffect, useState} from 'react';
 
 // Libreria de Materialize
-import M from 'materialize-css';
+ import M from 'materialize-css';
 
 //CSS core de Materialize
 import 'materialize-css/dist/css/materialize.min.css';
@@ -89,6 +89,7 @@ const App = () => {
   
     useEffect(() => {
         window.scrollTo({ top: 0 });
+        M.AutoInit();
     }, [pathname]);
 
 

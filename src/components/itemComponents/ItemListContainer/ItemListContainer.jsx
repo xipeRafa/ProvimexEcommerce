@@ -138,7 +138,7 @@ const ItemListContainer = ({items}) => {
 
             <div >
                 <select onChange={(e)=>setDescriptionState(e.target.value)}>
-                    <option >BUSCAR POR TIPO:</option>
+                    <option>BUSCAR POR TIPO:</option>
 
                     <option value="RODAMIENTO A BOLAS DE CONTACTO ANGULAR">RODAMIENTO A BOLAS DE CONTACTO ANGULAR</option>
                     <option value="RODAMIENTO OSCILANTE DE RODILLOS">RODAMIENTO OSCILANTE DE RODILLOS</option>
