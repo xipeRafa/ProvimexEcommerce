@@ -45,7 +45,7 @@ const Item = ({ id, codigo, imgUrl, description, di, de, ancho, precio }) => {
         <Link to={`/ProvimexEcommerce/item/${id}`} onClick={()=>{
 
                                                     setTimeout(()=>{
-                                                        window.scrollTo(0,250)
+                                                        window.scrollTo(0,110)
                                                     },100)     
 
                                                 }} >

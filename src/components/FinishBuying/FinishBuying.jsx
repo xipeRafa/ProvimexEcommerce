@@ -12,7 +12,7 @@ const FinishBuying = () => {
                 className="waves-effect btn"    onClick={()=>{
 
                                                     setTimeout(()=>{
-                                                        window.scrollTo(0,250)
+                                                        window.scrollTo(0,100)
                                                     },100)     
 
                                                 }}>

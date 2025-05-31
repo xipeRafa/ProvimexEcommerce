@@ -5,6 +5,7 @@
   width: 100%;
   height: 80vh;
   padding: 0 5vw;
+  margin-top: 10px;
 }
 .cart-container .cart, .cart-container-empty .cart {
   width: 100%;
