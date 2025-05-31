@@ -1,5 +1,5 @@
 .heading {
-  margin-top: 90px;
+  margin-top: 64px;
   text-align: center;
   /* border-bottom: 1px solid red; */
 }
@@ -39,5 +39,14 @@
     width: 90%;
     height: 120px;
   }
+  .heading {
+    margin-top: 60px;
+  }
+  .solucionesIndustriales{
+    display: none;
+  }
 }
+  .solucionesIndustriales{
+    display: none;
+  }
 

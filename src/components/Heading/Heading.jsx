@@ -6,7 +6,7 @@ const Heading = () => {
            
                   <div className="heading">
                         {/*<p>Somos una Empresa que</p>*/}
-                        <h2>Soluciones Industriales.</h2>
+                        <h2 className="solucionesIndustriales">Soluciones Industriales.</h2>
                         <div className='imgContainer'>
                               <img className='polanco' src={logo} alt="polanco" />
                         </div>

@@ -95,45 +95,49 @@ const ItemListContainer = ({items}) => {
         {/*  <label>Codigo:</label>
           <input type='text' value={2} />*/}
 
-            <label>Diametro Interior:
+            <label>Diametro Interior
                     <input type='number' min='0'  onChange={(e)=>{
-
                         setDiState(Number(e.target.value))
-
-                        // if(String(diState).charAt(0) == 0){
-                        //     setDiState(Number(String(e).charAt(0).slice(0)))
-                        // }
-      
                     }}/>
             </label>
             
-            <label>Diametro Exterior:
+            <label>Diametro Exterior
                     <input type='number' min='0' onChange={(e)=>{
                           setDeState(Number(e.target.value))
-
-                        // if(String(deState).charAt(0) == 0){
-                        //     setDeState(Number(String(e).charAt(0).slice(0)))
-                        // }
                     }}/>
             </label>
 
-            <label>Altura:
+            <label>Altura
                     <input type='number' min='0' onChange={(e)=>{
                           setAnchoState(Number(e.target.value))
-
-                        // if(String(anchoState).charAt(0) == 0){
-                        //     setAnchoState(Number(String(e).charAt(0).slice(0)))
-                        // }
                     }}/>
             </label>
 
-            
+            <input  type='reset' 
+                    value='↻' 
+                    className='resetButton'
+                    onClick={()=>{
+                            setDiState()
+                            setDeState()
+                            setAnchoState()
+                            setDescriptionState('BUSCAR POR TIPO:')
+                            setCodigoState([{ancho:0}])
+                        }
+                    }
+            />
         </form>
 
 
         <div className='selectTipo'>
-            <div>
-            <select name="select" onChange={(e)=>setDescriptionState(e.target.value)}>
+
+            <input 
+                type='search' 
+                placeholder=' 🔍 Buscar por Codigo' 
+                onChange={(e)=>handlerSearch(e)} 
+            />
+
+            <div >
+                <select name="select" style={{backgroundColor:'red!important'}} onChange={(e)=>setDescriptionState(e.target.value)}>
                     <option >BUSCAR POR TIPO:</option>
 
                     <option value="RODAMIENTO A BOLAS DE CONTACTO ANGULAR">RODAMIENTO A BOLAS DE CONTACTO ANGULAR</option>
@@ -146,37 +150,8 @@ const ItemListContainer = ({items}) => {
 
                     <option value="RODAMIENTO RIGIDO A BOLAS">RODAMIENTO RIGIDO A BOLAS</option>
                     <option value="RODAMIENTO RIGIDO DE BOLAS">RODAMIENTO RIGIDO DE BOLAS</option>
-
-            </select>
-        </div>
-
-            {/*<input type='button' 
-                style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}} 
-                value='VER TODO' 
-                onClick={()=>setDescriptionState()}/>*/}
-
-            <input 
-                type='search' 
-                placeholder=' 🔍 Buscar por Codigo' 
-                onChange={(e)=>handlerSearch(e)} 
-            />
-
-
-            <div>
-            <input  type='reset' 
-                    value='RESET ↻' 
-                    className='resetButton'
-                    onClick={()=>{
-                            setDiState()
-                            setDeState()
-                            setAnchoState()
-                            setDescriptionState('BUSCAR POR TIPO:')
-                            setCodigoState([{ancho:0}])
-                        }
-                    }
-            />
-        </div>
-            
+                </select>
+            </div>
         </div>   
 
 
