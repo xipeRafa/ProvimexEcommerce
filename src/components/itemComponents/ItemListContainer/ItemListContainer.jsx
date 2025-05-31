@@ -74,6 +74,18 @@ const ItemListContainer = ({items}) => {
 
         const [descriptionState, setDescriptionState]=useState()
 
+        const [codigoState, setCodigoState]=useState([{ancho:0}])
+
+        console.log(codigoState)
+
+        const handlerSearch=(e)=>{
+            const {name, value}=e.target
+            if(value.length >3){
+                setCodigoState(items.filter((el) => el.codigo.indexOf(value) > -1));
+            } 
+        }
+
+        const[resetState, setResetState]=useState()
 
         return(
 
@@ -116,22 +128,11 @@ const ItemListContainer = ({items}) => {
             </label>
 
             
-                 <input type='reset' 
-                    style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}}
-                    value='RESET ↻' 
-                    onClick={()=>{
-                        // location.reload()
-                        setDiState()
-                        setDeState()
-                        setAnchoState()
-                        setDescriptionState('BUSCAR POR TIPO:')
-                    }
-                }
-                />
         </form>
 
 
         <div className='selectTipo'>
+            <div>
             <select name="select" onChange={(e)=>setDescriptionState(e.target.value)}>
                     <option >BUSCAR POR TIPO:</option>
 
@@ -147,14 +148,58 @@ const ItemListContainer = ({items}) => {
                     <option value="RODAMIENTO RIGIDO DE BOLAS">RODAMIENTO RIGIDO DE BOLAS</option>
 
             </select>
+        </div>
 
             {/*<input type='button' 
                 style={{marginTop:'18px', backgroundColor:'transparent', border:'1px solid gray'}} 
                 value='VER TODO' 
                 onClick={()=>setDescriptionState()}/>*/}
+
+            <input 
+                type='search' 
+                value={resetState}
+                placeholder=' 🔍 Buscar por Codigo' 
+                onChange={(e)=>handlerSearch(e)} 
+            />
+
+
+            <div >
+            <input  type='reset' 
+                    value='RESET ↻' 
+                    className='resetButton'
+                    onClick={()=>{
+                            setDiState()
+                            setDeState()
+                            setAnchoState()
+                            setDescriptionState('BUSCAR POR TIPO:')
+                            setCodigoState([{ancho:0}])
+                            setResetState('')
+                        }
+                    }
+            />
         </div>
+            
+        </div>   
 
 
+                   
+
+
+
+
+            <div className="item-list-container2">  
+                    <ItemList items={JSON.parse(localStorage.arrItems)
+                    .filter(el => el.di == diState)
+                    .filter(el => el.de == deState)
+                    .filter(el => el.ancho == anchoState)
+                    .filter(el => el.ancho !== '')
+                    .filter(el => el.ancho !== 0)
+                    .filter(el => el.di !== '')
+                    .filter(el => el.di !== 0)
+                    .filter(el => el.description == descriptionState)
+                    // .slice(sliceState, sliceState + prodByPage)
+                } />  
+            </div>
            
            
             <div className="item-list-container2">  
@@ -172,11 +217,24 @@ const ItemListContainer = ({items}) => {
 
 
 
-             <div className="item-list-container2">  
+            <div className="item-list-container2">  
                     <ItemList items={JSON.parse(localStorage.arrItems)
                     .filter(el => el.description == descriptionState)
                     .slice(sliceState, sliceState + prodByPage)} />  
             </div>
+
+            <div className="item-list-container2">  
+                    <ItemList items={codigoState
+                    .filter(el => el.ancho !== '')
+                    .filter(el => el.ancho !== 0)
+                    .filter(el => el.di !== '')
+                    .filter(el => el.di !== 0)
+                    // .slice(sliceState, sliceState + prodByPage)
+                } />  
+            </div>
+
+
+
 
 
 

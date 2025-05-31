@@ -11,9 +11,9 @@ const ItemList = ({ items }) => {
     return (
         
         <div className="ItemList">
-            { items.map( p =>
+            { items?.map( p =>
                 <Item
-                    key={p.id}
+                    key={p.id || 'xyz123'}
                     id={p.id} 
                     codigo={p.codigo} 
                     di={p.di} 
