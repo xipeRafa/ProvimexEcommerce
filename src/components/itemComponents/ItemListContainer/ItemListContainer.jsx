@@ -137,7 +137,7 @@ const ItemListContainer = ({items}) => {
             />
 
             <div >
-                <select name="select" style={{backgroundColor:'red!important'}} onChange={(e)=>setDescriptionState(e.target.value)}>
+                <select onChange={(e)=>setDescriptionState(e.target.value)}>
                     <option >BUSCAR POR TIPO:</option>
 
                     <option value="RODAMIENTO A BOLAS DE CONTACTO ANGULAR">RODAMIENTO A BOLAS DE CONTACTO ANGULAR</option>
